@@ -4,6 +4,7 @@ from app.serializers import playerSerializer
 from rest_framework import response
 from rest_framework import status
 
+#manipula os registros de jogadores 
 @api_view(['GET','POST'])
 def playerRegister(request):
     if request.method == 'GET':
@@ -16,6 +17,7 @@ def playerRegister(request):
             serializer.save()
             return response(serializer.data, status=status.HTTP_201_CREARTED)
         return response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
+#Modifica e exclui    
 @api_view(['GET','PUT','DELETE'])
 def playerRegister_change_and_delete(request, pk):
     try: 
